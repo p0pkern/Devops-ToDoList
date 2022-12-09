@@ -8,12 +8,14 @@ public class Task {
 	private final LocalDateTime date;
 	private String title;
 	private String text;
-	
+	private boolean completed;
+
 	public Task(LocalDateTime date, String title, String text) {
 		this.date = date;
 		this.title = title;
 		this.text = text;
 		this.id = UUID.randomUUID();
+		this.completed = false;
 	}
 
 	public LocalDateTime getDate() {
@@ -38,6 +40,14 @@ public class Task {
 
 	public UUID getId() {
 		return id;
+	}
+
+	public boolean isCompleted() {
+		return completed;
+	}
+
+	public void setCompleted(boolean completed) {
+		this.completed = completed;
 	}
 
 }

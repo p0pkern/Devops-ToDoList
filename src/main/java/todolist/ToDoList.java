@@ -32,4 +32,14 @@ public class ToDoList {
 		return true;
 	}
 	
+	public boolean deleteTask(String taskId) {
+		for(Task task: tasks) {
+			if(task.getId().toString().equals(taskId)) {
+				tasks.remove(task);
+				return true;
+			}
+		}
+		
+		return false;
+	}
 }

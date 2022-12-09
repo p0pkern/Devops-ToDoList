@@ -40,12 +40,34 @@ class TestToDoList {
 	}
 	
 	@Test
-	void testRemoveATask() {
+	void testAddOneTaskThenRemoveIt() {
 		LocalDateTime time = LocalDateTime.now();
 		String title = "Task 1";
 		String message = "The text of message 1";
 		
 		Task task = new Task(time, title, message);
+		
+		todo.addTask(task);
+		
+		assertTrue(todo.deleteTask(task.getId().toString()));
+		
+	}
+	
+	@Test
+	void testAddThreeTasksThenRemoveOneOfThem() {
+		LocalDateTime time = LocalDateTime.now();
+		String title = "Task 1";
+		String message = "The text of message 1";
+		
+		Task task1 = new Task(time, title, message);
+		Task task2 = new Task(time, title, message);
+		Task task3 = new Task(time, title, message);
+		
+		todo.addTask(task1);
+		todo.addTask(task2);
+		todo.addTask(task3);
+		
+		assertTrue(todo.deleteTask(task2.getId().toString()));
 	}
 
 }
